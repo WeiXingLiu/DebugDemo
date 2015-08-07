@@ -8,8 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+#ifdef DEBUG
+#define NSLog(...) NSLog(__VA_ARGS__)
+#else
+#define NSLog(...)
+#endif
 
+#define kPrintDebug NSLog(@"%s %d",__func__,__LINE__)
+
+@interface ViewController : UIViewController
 
 @end
 
